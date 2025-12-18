@@ -2,68 +2,277 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Contador Pantaneiro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contador Pantaneiro</title>
+  <meta name="description" content="Assistente técnico de contabilidade pública para rotinas do SIAFI/SIAFIWeb e MCASP." />
+
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 40px;
-      background-color: #f5f7f6;
-      color: #1f2933;
+    :root{
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --line: rgba(255,255,255,0.14);
+      --brand: #2EE59D;
+      --brand2: #43C6FF;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 980px;
     }
-    h1 {
-      color: #0f3d2e;
+
+    /* Light mode */
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f6f8fb;
+        --card: rgba(15, 61, 46, 0.06);
+        --card2: rgba(15, 61, 46, 0.10);
+        --text: #0f172a;
+        --muted: rgba(15, 23, 42, 0.70);
+        --line: rgba(15, 23, 42, 0.12);
+        --brand: #0f3d2e;
+        --brand2: #1e6b52;
+        --shadow: 0 18px 60px rgba(2, 6, 23, .12);
+      }
     }
-    footer {
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #555;
+
+    *{ box-sizing: border-box; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(67,198,255,.20), transparent 55%),
+                  radial-gradient(1000px 700px at 90% 20%, rgba(46,229,157,.18), transparent 55%),
+                  radial-gradient(900px 700px at 50% 100%, rgba(46,229,157,.10), transparent 60%),
+                  var(--bg);
+      min-height: 100vh;
     }
-    a {
-      color: #1e6b52;
-      text-decoration: none;
+
+    a{ color: inherit; text-decoration: none; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 44px 18px 28px; }
+
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(10px);
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 0;
+    }
+    .logo{
+      width: 42px; height: 42px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: var(--shadow);
+      display:flex; align-items:center; justify-content:center;
+      font-weight: 800;
+      letter-spacing: .5px;
+      color: rgba(255,255,255,.92);
+      flex: 0 0 auto;
+    }
+    .brand h1{
+      font-size: 16px; margin:0; line-height: 1.2;
+      white-space: nowrap; overflow:hidden; text-overflow: ellipsis;
+    }
+    .pill{
+      font-size: 12px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      white-space: nowrap;
+    }
+
+    .hero{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 16px;
+    }
+    @media (max-width: 860px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      backdrop-filter: blur(10px);
+    }
+
+    .headline{
+      font-size: 32px;
+      letter-spacing: -0.8px;
+      margin: 0 0 10px;
+      line-height: 1.1;
+    }
+    .sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .cta{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 10px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.08); }
+    .btn.primary{
+      border-color: rgba(46,229,157,.55);
+      background: linear-gradient(135deg, rgba(46,229,157,.28), rgba(67,198,255,.18));
+    }
+    .btn.primary:hover{ border-color: rgba(46,229,157,.9); }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+    .mini{
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card2);
+      padding: 14px 14px;
+    }
+    .mini h3{
+      margin: 0 0 6px;
+      font-size: 14px;
+      letter-spacing: -0.2px;
+    }
+    .mini p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .aside h2{
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: .2px;
+      text-transform: uppercase;
+    }
+    .kv{
+      display:flex; justify-content:space-between; gap: 14px;
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .kv strong{ color: var(--text); font-weight: 650; }
+    .kv:first-of-type{ border-top: none; padding-top: 0; }
+
+    footer{
+      max-width: var(--max);
+      margin: 18px auto 0;
+      padding: 0 18px 28px;
+      color: var(--muted);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap: wrap;
+    }
+    .footlinks{
+      display:flex; gap:12px; flex-wrap:wrap;
+    }
+    .footlinks a{
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
     }
   </style>
 </head>
+
 <body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">CP</div>
+        <div style="min-width:0">
+          <h1>Contador Pantaneiro</h1>
+          <div class="pill">Assistente técnico • SIAFI / SIAFIWeb / MCASP</div>
+        </div>
+      </div>
+      <div class="pill">Desenvolvedor: Paulo N. Santos</div>
+    </div>
 
-  <h1>Contador Pantaneiro</h1>
+    <div class="hero">
+      <section class="card">
+        <h2 class="headline">Apoio técnico para rotinas de contabilidade pública</h2>
+        <p class="sub">
+          Orientações padronizadas para situações recorrentes (ex.: inconsistências, regularizações,
+          conferências e textos institucionais). Quando conectado a bases autorizadas, pode
+          utilizar documentos técnicos como referência para qualificar as respostas.
+        </p>
 
-  <p>
-    O <strong>Contador Pantaneiro</strong> é um aplicativo de apoio técnico voltado à
-    <strong>contabilidade pública</strong>, com foco em rotinas do
-    <strong>SIAFI, SIAFIWeb, MCASP</strong> e procedimentos administrativos correlatos.
-  </p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:contadopantaneiro@gmail.com">Contato / Suporte</a>
+          <a class="btn" href="privacy.html">Política de Privacidade</a>
+          <a class="btn" href="terms.html">Termos de Uso</a>
+        </div>
 
-  <p>
-    O aplicativo auxilia servidores e profissionais na interpretação de situações recorrentes,
-    organização de providências, elaboração de checklists e redação de textos em
-    <strong>linguagem institucional</strong>, sempre com caráter orientativo.
-  </p>
+        <div class="grid">
+          <div class="mini">
+            <h3>Checklists e providências</h3>
+            <p>Organiza etapas de validação e ações sugeridas com linguagem objetiva.</p>
+          </div>
+          <div class="mini">
+            <h3>Texto institucional</h3>
+            <p>Redação sintética em estilo parecer/DIEx, com foco em clareza e padronização.</p>
+          </div>
+          <div class="mini">
+            <h3>Base documental (RAG)</h3>
+            <p>Quando habilitado, consulta trechos de manuais e normas para embasar respostas.</p>
+          </div>
+        </div>
+      </section>
 
-  <p>
-    Quando conectado a bases de conhecimento autorizadas, o aplicativo pode utilizar
-    documentos técnicos, manuais e normas como referência para qualificar as respostas.
-  </p>
+      <aside class="card aside">
+        <h2>Informações</h2>
+        <div class="kv"><span>Categoria</span><strong>Business</strong></div>
+        <div class="kv"><span>Uso</span><strong>Orientativo</strong></div>
+        <div class="kv"><span>Suporte</span><strong>contadopantaneiro@gmail.com</strong></div>
+        <div class="kv"><span>Links</span><strong>Privacidade / Termos</strong></div>
 
-  <h2>Desenvolvedor</h2>
-  <p>
-    Desenvolvido por <strong>Paulo N. Santos</strong>.
-  </p>
-
-  <h2>Contato</h2>
-  <p>
-    Para dúvidas ou suporte: <br />
-    📧 <a href="mailto:contadopantaneiro@gmail.com">contadopantaneiro@gmail.com</a>
-  </p>
+        <div style="margin-top:14px; color: var(--muted); font-size:13px; line-height:1.55;">
+          <strong style="color:var(--text);">Aviso:</strong> este aplicativo não substitui análise formal,
+          parecer oficial ou decisão administrativa. O usuário deve validar orientações conforme normas vigentes.
+        </div>
+      </aside>
+    </div>
+  </div>
 
   <footer>
-    <p>
-      <a href="privacy.html">Política de Privacidade</a> |
+    <div>© 2025 Contador Pantaneiro</div>
+    <div class="footlinks">
+      <a href="privacy.html">Política de Privacidade</a>
       <a href="terms.html">Termos de Uso</a>
-    </p>
-    <p>© 2025 Contador Pantaneiro</p>
+    </div>
   </footer>
-
 </body>
 </html>

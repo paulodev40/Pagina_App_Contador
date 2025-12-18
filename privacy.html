@@ -2,64 +2,49 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Política de Privacidade - Contador Pantaneiro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade • Contador Pantaneiro</title>
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 40px;
-      background-color: #ffffff;
-      color: #1f2933;
-    }
-    h1 {
-      color: #0f3d2e;
-    }
+    :root{ --bg:#0b1220; --card:rgba(255,255,255,.06); --text:rgba(255,255,255,.92); --muted:rgba(255,255,255,.70); --line:rgba(255,255,255,.14); --max: 860px; --radius: 18px; }
+    @media (prefers-color-scheme: light){ :root{ --bg:#f6f8fb; --card:rgba(15,61,46,.06); --text:#0f172a; --muted:rgba(15,23,42,.70); --line:rgba(15,23,42,.12);} }
+    body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background: var(--bg); color: var(--text); }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 42px 18px 28px; }
+    .card{ border:1px solid var(--line); background: var(--card); border-radius: var(--radius); padding: 22px; }
+    a{ color: inherit; }
+    h1{ margin:0 0 8px; font-size: 28px; letter-spacing: -.6px; }
+    p, li{ color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .top{ display:flex; justify-content:space-between; gap: 10px; align-items:center; margin-bottom: 14px; flex-wrap: wrap; }
+    .pill{ font-size:12px; padding: 6px 10px; border:1px solid var(--line); border-radius: 999px; color: var(--muted); }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="top">
+      <a class="pill" href="index.html">← Voltar</a>
+      <span class="pill">contadopantaneiro@gmail.com</span>
+    </div>
 
-  <h1>Política de Privacidade</h1>
+    <div class="card">
+      <h1>Política de Privacidade</h1>
+      <p>Esta Política descreve como as informações são tratadas no uso do <strong>Contador Pantaneiro</strong>.</p>
 
-  <p>
-    Esta Política de Privacidade descreve como as informações são tratadas no uso do
-    aplicativo <strong>Contador Pantaneiro</strong>.
-  </p>
+      <h2 style="margin-top:18px; font-size:16px;">1. Coleta de informações</h2>
+      <p>O Contador Pantaneiro não coleta nem solicita dados pessoais sensíveis. As interações ocorrem no ambiente da plataforma onde o aplicativo é executado.</p>
 
-  <h2>Coleta de Informações</h2>
-  <p>
-    O Contador Pantaneiro não coleta, armazena ou compartilha dados pessoais sensíveis
-    dos usuários. As interações ocorrem no ambiente da plataforma ChatGPT,
-    conforme suas próprias políticas de privacidade.
-  </p>
+      <h2 style="margin-top:18px; font-size:16px;">2. Uso das informações</h2>
+      <p>O conteúdo informado pelo usuário é utilizado exclusivamente para gerar respostas e orientações técnicas durante a utilização do aplicativo.</p>
 
-  <h2>Uso das Informações</h2>
-  <p>
-    As informações fornecidas pelos usuários são utilizadas exclusivamente para gerar
-    respostas e orientações técnicas durante a sessão de uso do aplicativo.
-  </p>
+      <h2 style="margin-top:18px; font-size:16px;">3. Armazenamento</h2>
+      <p>O aplicativo não mantém cadastro de usuários nem banco de dados próprio para armazenar conversas. Eventuais registros/telemetria dependem da plataforma e/ou integrações habilitadas pelo usuário.</p>
 
-  <h2>Armazenamento</h2>
-  <p>
-    O aplicativo não mantém banco de dados próprio de usuários nem realiza
-    armazenamento permanente das interações.
-  </p>
+      <h2 style="margin-top:18px; font-size:16px;">4. Integrações e bases de conhecimento</h2>
+      <p>Quando habilitado, o aplicativo pode consultar bases de conhecimento autorizadas (ex.: documentos e manuais) para melhorar a qualidade das respostas. O acesso ocorre apenas para fins de recuperação de contexto (RAG).</p>
 
-  <h2>Segurança</h2>
-  <p>
-    As medidas de segurança aplicáveis são aquelas disponibilizadas pela própria
-    plataforma ChatGPT e pelos serviços utilizados de forma integrada.
-  </p>
+      <h2 style="margin-top:18px; font-size:16px;">5. Contato</h2>
+      <p>Dúvidas: <a href="mailto:contadopantaneiro@gmail.com">contadopantaneiro@gmail.com</a></p>
 
-  <h2>Contato</h2>
-  <p>
-    Em caso de dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail:
-    <br />
-    📧 <a href="mailto:contadopantaneiro@gmail.com">contadopantaneiro@gmail.com</a>
-  </p>
-
-  <p>
-    Última atualização: Janeiro de 2025
-  </p>
-
+      <p style="margin-top:18px; font-size:13px;">Última atualização: Dezembro de 2025</p>
+    </div>
+  </div>
 </body>
 </html>

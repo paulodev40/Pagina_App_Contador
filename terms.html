@@ -2,65 +2,53 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Termos de Uso - Contador Pantaneiro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termos de Uso • Contador Pantaneiro</title>
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 40px;
-      background-color: #ffffff;
-      color: #1f2933;
-    }
-    h1 {
-      color: #0f3d2e;
-    }
+    :root{ --bg:#0b1220; --card:rgba(255,255,255,.06); --text:rgba(255,255,255,.92); --muted:rgba(255,255,255,.70); --line:rgba(255,255,255,.14); --max: 860px; --radius: 18px; }
+    @media (prefers-color-scheme: light){ :root{ --bg:#f6f8fb; --card:rgba(15,61,46,.06); --text:#0f172a; --muted:rgba(15,23,42,.70); --line:rgba(15,23,42,.12);} }
+    body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background: var(--bg); color: var(--text); }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 42px 18px 28px; }
+    .card{ border:1px solid var(--line); background: var(--card); border-radius: var(--radius); padding: 22px; }
+    a{ color: inherit; }
+    h1{ margin:0 0 8px; font-size: 28px; letter-spacing: -.6px; }
+    p, li{ color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .top{ display:flex; justify-content:space-between; gap: 10px; align-items:center; margin-bottom: 14px; flex-wrap: wrap; }
+    .pill{ font-size:12px; padding: 6px 10px; border:1px solid var(--line); border-radius: 999px; color: var(--muted); }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="top">
+      <a class="pill" href="index.html">← Voltar</a>
+      <span class="pill">Uso orientativo</span>
+    </div>
 
-  <h1>Termos de Uso</h1>
+    <div class="card">
+      <h1>Termos de Uso</h1>
+      <p>Ao utilizar o <strong>Contador Pantaneiro</strong>, o usuário concorda com estes Termos.</p>
 
-  <p>
-    Ao utilizar o aplicativo <strong>Contador Pantaneiro</strong>, o usuário concorda
-    com os presentes Termos de Uso.
-  </p>
+      <h2 style="margin-top:18px; font-size:16px;">1. Finalidade</h2>
+      <p>O aplicativo tem caráter <strong>informativo e orientativo</strong>, não substituindo análises formais, pareceres oficiais ou decisões administrativas.</p>
 
-  <h2>Finalidade</h2>
-  <p>
-    O Contador Pantaneiro tem caráter exclusivamente
-    <strong>informativo e orientativo</strong>, não substituindo análises formais,
-    pareceres oficiais ou decisões administrativas.
-  </p>
+      <h2 style="margin-top:18px; font-size:16px;">2. Responsabilidade do usuário</h2>
+      <p>O usuário é responsável por validar as orientações conforme legislação, normas e procedimentos aplicáveis ao seu contexto.</p>
 
-  <h2>Responsabilidade</h2>
-  <p>
-    O desenvolvedor não se responsabiliza por decisões tomadas com base nas
-    informações fornecidas pelo aplicativo. Cabe ao usuário validar as orientações
-    conforme a legislação vigente e normas aplicáveis.
-  </p>
+      <h2 style="margin-top:18px; font-size:16px;">3. Limitações</h2>
+      <ul>
+        <li>As respostas podem conter limitações inerentes a sistemas de IA.</li>
+        <li>Resultados dependem da qualidade das informações fornecidas pelo usuário.</li>
+        <li>Quando houver base documental conectada, as respostas podem variar conforme o acervo e os filtros aplicados.</li>
+      </ul>
 
-  <h2>Uso Adequado</h2>
-  <p>
-    O usuário compromete-se a utilizar o aplicativo de forma ética, lícita e compatível
-    com suas atribuições profissionais.
-  </p>
+      <h2 style="margin-top:18px; font-size:16px;">4. Disponibilidade</h2>
+      <p>O aplicativo pode ser alterado, suspenso ou descontinuado a qualquer momento.</p>
 
-  <h2>Disponibilidade</h2>
-  <p>
-    O aplicativo pode sofrer alterações, suspensões ou descontinuidade a qualquer
-    momento, sem aviso prévio.
-  </p>
+      <h2 style="margin-top:18px; font-size:16px;">5. Contato</h2>
+      <p>Suporte: <a href="mailto:contadopantaneiro@gmail.com">contadopantaneiro@gmail.com</a></p>
 
-  <h2>Contato</h2>
-  <p>
-    Para esclarecimentos:
-    <br />
-    📧 <a href="mailto:contadopantaneiro@gmail.com">contadopantaneiro@gmail.com</a>
-  </p>
-
-  <p>
-    Última atualização: Janeiro de 2025
-  </p>
-
+      <p style="margin-top:18px; font-size:13px;">Última atualização: Dezembro de 2025</p>
+    </div>
+  </div>
 </body>
 </html>
